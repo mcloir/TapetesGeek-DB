@@ -2,7 +2,7 @@
 CREATE DATABASE tapetes_geek;
 USE tapetes_geek;
 
--- Tabela 1: Cliente [cite: 251]
+-- Tabela 1: Cliente
 CREATE TABLE Cliente (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     nome_completo VARCHAR(100) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE Cliente (
     telefone VARCHAR(20)
 );
 
--- Tabela 2: TituloReceber [cite: 257]
+-- Tabela 2: TituloReceber
 CREATE TABLE TituloReceber (
     id_titulo INT AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT NOT NULL,
@@ -20,24 +20,24 @@ CREATE TABLE TituloReceber (
     FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente)
 );
 
--- Tabela 3: Parcela [cite: 262]
+-- Tabela 3: Parcela
 CREATE TABLE Parcela (
     id_parcela INT AUTO_INCREMENT PRIMARY KEY,
     id_titulo INT NOT NULL,
-    numero_parcela VARCHAR(10) NOT NULL, -- Ex: "1/3"
+    numero_parcela VARCHAR(10) NOT NULL, 
     data_vencimento DATE NOT NULL,
     valor_parcela DECIMAL(10, 2) NOT NULL,
-    situacao VARCHAR(20) DEFAULT 'Aberto', -- Aberto, Pago, Atrasado
+    situacao VARCHAR(20) DEFAULT 'Aberto', 
     FOREIGN KEY (id_titulo) REFERENCES TituloReceber(id_titulo)
 );
 
--- Tabela 5: FormaPagamento (Criar antes de Pagamento pois é dependência) [cite: 276]
+-- Tabela 5: FormaPagamento
 CREATE TABLE FormaPagamento (
     id_forma_pagamento INT AUTO_INCREMENT PRIMARY KEY,
-    descricao VARCHAR(50) NOT NULL -- Pix, Crédito, Débito
+    descricao VARCHAR(50) NOT NULL 
 );
 
--- Tabela 4: Pagamento [cite: 269]
+-- Tabela 4: Pagamento
 CREATE TABLE Pagamento (
     id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
     id_parcela INT NOT NULL,

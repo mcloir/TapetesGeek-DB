@@ -20,9 +20,9 @@ WHERE id_parcela = 2;
 
 -- --- COMANDOS DELETE ---
 
--- 1. Remover um pagamento lançado errado (ex: duplicado)
+-- 1. Remover um pagamento lançado errado
 DELETE FROM Pagamento 
-WHERE id_pagamento = 999; -- (Exemplo hipotético, cuidado para não apagar dados reais sem querer)
+WHERE id_pagamento = 999; 
 
 -- 2. Remover clientes que não possuem títulos (limpeza de cadastro)
 DELETE FROM Cliente 

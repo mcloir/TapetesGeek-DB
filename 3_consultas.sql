@@ -3,10 +3,10 @@ USE tapetes_geek;
 -- Consulta 1: Listar todos os clientes e seus e-mails (Simples)
 SELECT nome_completo, email FROM Cliente;
 
--- Consulta 2: Listar parcelas que estão em atraso (Com WHERE) [cite: 196]
+-- Consulta 2: Listar parcelas que estão em atraso (Com WHERE)
 SELECT * FROM Parcela WHERE situacao = 'Atrasado';
 
--- Consulta 3: Relatório completo - Quem comprou, valor original e situação das parcelas (JOIN)
+-- Consulta 3: Relatório completo
 SELECT 
     c.nome_completo, 
     t.id_titulo, 
